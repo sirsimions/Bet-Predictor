@@ -13,7 +13,8 @@ function Chance() {
 
     const [sum1, setSum1] = useState();
     const [sum2, setSum2] = useState();
-    const [winner, setWinner] = useState();
+    const [draw1, setDraw1] = useState();
+    const [draw2, setDraw2] = useState();
     const [statement, setStatement] = useState('');
     const Navigate = useNavigate()
 
@@ -28,20 +29,23 @@ function Chance() {
 
     function predict(comment) {
 
+     let score1= parseInt(win1)*0.2+parseInt(draw1)*0.2+0.1
+     let score2= parseInt(win2)*0.2+parseInt(draw2)*0.2
 
-        setSum1(parseInt(win1)*0.2)
+        setSum1(score1)
         console.log(win1)
+        console.log(draw1)
         console.log(win2)
-        setSum2(parseInt(win2)*0.2)
+        setSum2(score2)
     
 
-        if (win1 < win2) {
+        if (score1 < score2) {
             comment = `Prediction: ${team2} will win`
         }
-        else if(win1 > win2) { 
+        else if(score1 > score2) { 
             comment = `Prediction: ${team1} will win`
         }
-        else if(win1===win2){
+        else if(score1===score2){
             comment = `The teams will draw`
         }
         else {comment ="Enter valid values"}
@@ -55,15 +59,17 @@ function Chance() {
         <>
         <div className='bgimage' style={styles.paperContainer}></div>
             <div className='bod'>
-                <div>Fill in the boxes below with the required information</div>
-                <div>Enter the first team<input type='text' value={team1} onChange={(e) => setTeam1(e.target.value)} /></div>
-                <div>Enter the number of wins for the recent five matches<input type='number' value={win1} onChange={(e) => setWin1(e.target.value)} /></div>
-                <div>Enter the second team<input type='text' value={team2} onChange={(e) => setTeam2(e.target.value)} /></div>
-                <div>Enter the number of wins for the recent five matches<input type='number' value={win2} onChange={(e) => setWin2(e.target.value)} /></div>
+                <div className='fields'>Enter the number of wins and draws for the most recent FIVE (5) matches</div>
+                <div className='fields'>Home team: <input type='text' value={team1} onChange={(e) => setTeam1(e.target.value)} /></div>
+                <div className='fields'>No. of Wins: <input type='number' value={win1} onChange={(e) => setWin1(e.target.value)} /></div>
+                <div className='fields'>No. of Draws: <input type='number' value={draw1} onChange={(e) => setDraw1(e.target.value)} /></div>
+                <div className='fields'>Away team: <input type='text' value={team2} onChange={(e) => setTeam2(e.target.value)} /></div>
+                <div className='fields'>No. of Wins: <input type='number' value={win2} onChange={(e) => setWin2(e.target.value)} /></div>
+                <div className='fields'>No. of Draws: <input type='number' value={draw2} onChange={(e) => setDraw2(e.target.value)} /></div>
                 
-                <div><button onClick={predict}>Predict</button></div>
+                <div ><button className='bt' onClick={predict}>Predict</button></div>
                 {/* <div>Sum: {sum}</div> */}
-                <div>{matches}</div>
+                {/* <div>{matches}</div> */}
                 <div> {statement} </div>
             </div>
         </>

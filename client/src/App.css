@@ -20,7 +20,18 @@
 }
 .bod{
  position: absolute;
- top: 30%;
+ top: 24%;
  color: white;
  left: 30%;
+ border: 1px solid blue;
+ width: 40%;
+ padding: 1%;
+}
+.fields{
+  padding-bottom: 2%;
+}
+.bt{
+  background-color: orangered;
+  cursor: pointer;
+  border-radius: 4px;
 }
