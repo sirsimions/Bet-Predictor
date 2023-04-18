@@ -35,3 +35,27 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+.welcome{
+  position: absolute;
+  color: white;
+  left: 70%;
+  top: 3%;
+}
+.not{
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  font-size: x-large;
+}
+.container{
+  margin-top: 2%;
+  
+}
+.logout{
+  position: absolute;
+  color: white;
+  left: 90%;
+  top: 3%;
+  background-color: black;
+}

@@ -1,19 +1,22 @@
 import React, {useState} from 'react'
+import '../App.css'
 
-function Login(){
+function Login({setUser, onLogin}){
 
-    const [name, setFirstName] = useState('')
+    const [firstname, setFirstName] = useState('')
     const [password, setPassword] = useState('')
 
-    function handleSubmit(){
+    function handleSubmit(e) {
+        e.preventDefault()
         fetch('/login', {
-           method: 'POST',
-           headers: {'Content-Type': 'application/json',
-           Accept: 'application/json',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
                 Authorization: localStorage.token
             },
             body: JSON.stringify({
-                name: name,
+                firstname: firstname,
                 password: password
             })
         })
@@ -24,19 +27,18 @@ function Login(){
                 } else {
                     localStorage.setItem("user", JSON.stringify(data.user))
                     localStorage.setItem("token", data.jwt)
-                    // setUser(data.user)
+                    setUser(data.user)
                     // setRole(data.user.role)
-                    // onLogin()
+                    onLogin()
                 }
                 console.log(data)
                 // console.log(user)
-                console.log()
+               
             })
             .catch((error) => {
                 console.log(error);
             });
     }
-
     return (
         <>
             <div class="container">
@@ -45,10 +47,10 @@ function Login(){
                         <div class="card" id='posit' >
                             <h2 class="card-title text-center">Login <a href="http://opensnippets.com"></a></h2>
                             <div class="card-body py-md-4" id='form'>
-                                <form _lpchecked="1" className='form' onSubmit={handleSubmit}>
+                                <form _lpchecked="1" classname='form' onSubmit={handleSubmit}>
 
                                     <div class="form-group">
-                                        <input value={name} onChange={(e)=>setFirstName(e.target.value)} type="email" class="form-control" id="email" placeholder="Email" />
+                                        <input value={firstname} onChange={(e)=>setFirstName(e.target.value)} type="text" class="form-control" id="email" placeholder="firstname" />
                                     </div>
 
 

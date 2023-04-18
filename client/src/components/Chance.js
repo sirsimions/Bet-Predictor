@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom'
+import '../App.css'
 
 
-function Chance() {
+function Chance( {user} ) {
 
     const [win1, setWin1] = useState();
     const [win2, setWin2] = useState();
@@ -29,8 +31,8 @@ function Chance() {
 
     function predict(comment) {
 
-     let score1= parseInt(win1)*0.2+parseInt(draw1)*0.2+0.1
-     let score2= parseInt(win2)*0.2+parseInt(draw2)*0.2
+     let score1= parseInt(win1)*3+parseInt(draw1)+0.1
+     let score2= parseInt(win2)*3+parseInt(draw2)
 
         setSum1(score1)
         console.log(win1)
@@ -54,7 +56,7 @@ function Chance() {
         setMatches(`${team1} and ${team2} Predictions`)
     }
 
-
+    if(user){
     return (
         <>
         <div className='bgimage' style={styles.paperContainer}></div>
@@ -74,5 +76,10 @@ function Chance() {
             </div>
         </>
     )
+    } else {
+        return(
+        <p>Kindly sign up</p>
+        )
+    }
 }
 export default Chance;

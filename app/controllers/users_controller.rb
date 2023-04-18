@@ -32,11 +32,15 @@ class UsersController < ApplicationController
       def profile
           render json: @user
       end
+
+      def logout
+        user.destroy
+      end 
     
       
       private
     
       def user_params
-        params.permit(:firstname, :lastname, :password_digest)
+        params.permit(:firstname, :lastname, :password, :password_confirmation)
       end
 end
