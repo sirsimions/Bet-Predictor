@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../App.css'
 
 function Login({setUser, onLogin}){
@@ -39,6 +39,15 @@ function Login({setUser, onLogin}){
                 console.log(error);
             });
     }
+     
+    // useEffect(() => {
+    //     const loggedInUser = localStorage.getItem("user");
+    //     if (loggedInUser) {
+    //       const foundUser = JSON.parse(loggedInUser);
+    //       setUser(foundUser);
+    //     }
+    //   }, []);
+
     return (
         <>
             <div class="container">

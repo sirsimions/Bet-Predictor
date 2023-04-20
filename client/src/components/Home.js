@@ -28,6 +28,7 @@ function Home({ user }) {
     else {
         return(
             <p className='not'>Betting made easy. You are just a few clicks away from your win. Sign up or login in if you alread have an account</p>
+            
             )
     }
 }

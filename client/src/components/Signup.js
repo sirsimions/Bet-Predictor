@@ -86,8 +86,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import '../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logout from './Logout';
+import Navbar from './Navbar';
 
-function Signup( {onSignup, user} ){
+function Signup( {onSignup, user, setUser } ){
 
     const [firstname, setFirstname]=useState('')
     const [lastname, setLastname]=useState('')
@@ -95,13 +96,16 @@ function Signup( {onSignup, user} ){
     const[passwordConfirmation, setPasswordConfirmation]=useState('')
     const navigate = useNavigate()
 
+    // function onSignup(){
+    //     navigate('/logins')
+    // }
+    
     const styles = {
         paperContainer: {
             height: 657,
             backgroundImage: `url(${"https://images.pexels.com/photos/2114014/pexels-photo-2114014.jpeg?auto=compress&cs=tinysrgb&w=600"})`
         }
     };
-
 
     function handleSubmit(){
         fetch('/signup',{
@@ -116,9 +120,6 @@ function Signup( {onSignup, user} ){
         }).then(res=>res.json())
         .then(data=>{
             console.log(data)
-            onSignup(data)
-            navigate('/logins')
-            
         })
 
     }
@@ -158,7 +159,8 @@ function Signup( {onSignup, user} ){
             {/* <button id='but' onClick={()=>Navigate('/departments')}>Go Back</button> */}
 
             {/* <div className='bgimage' style={styles.paperContainer}></div> */}
-            <Logout setFirstname={setFirstname} setLastname={setLastname} setPassword={setPassword}/>
+            <Logout setFirstname={setFirstname} setLastname={setLastname} setPassword={setPassword} />
+            
         </>
     )
 }

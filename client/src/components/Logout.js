@@ -29,7 +29,7 @@ function Logout({ user, setFirstname, setLastname, setPassword, setUser }) {
     
     return (
         <>
-        <Navbar handleLogout={handleLogout}></Navbar>
+        {/* <Navbar handleLogout={handleLogout}></Navbar> */}
         </>
     )
 }

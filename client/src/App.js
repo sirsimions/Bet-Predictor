@@ -36,7 +36,7 @@ function App() {
     <Routes>
       <Route exact path='/' element={<Home user={user}/>}/>
       <Route exact path='/chance' element={<Chance user={user}/>}/>
-      <Route exact path='/signups' element={<Signup onSignup={onSignup}/>}/>
+      <Route exact path='/signups' element={<Signup onSignup={onSignup} setUser ={setUser}/>}/>
       <Route exact path='/logins' element={<Login onLogin={onLogin} setUser ={setUser}/>}/>
     </Routes>
     </>
