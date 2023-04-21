@@ -31,7 +31,7 @@ function Chance( {user} ) {
 
     function predict(comment) {
 
-     let score1= parseInt(win1)*3+parseInt(draw1)+0.1
+     let score1= parseInt(win1)*3+parseInt(draw1)
      let score2= parseInt(win2)*3+parseInt(draw2)
 
         setSum1(score1)
@@ -41,16 +41,16 @@ function Chance( {user} ) {
         setSum2(score2)
     
 
-        if (score1 < score2) {
+        if (score1 < score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5) {
             comment = `Prediction: ${team2} will win`
         }
-        else if(score1 > score2) { 
+        else if(score1 > score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5) { 
             comment = `Prediction: ${team1} will win`
         }
-        else if(score1===score2){
+        else if(score1===score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5){
             comment = `The teams will draw`
         }
-        else {comment ="Enter valid values"}
+        else {comment ="Enter valid values. Consider only the most recent FIVE matches"}
 
         setStatement(comment)
         setMatches(`${team1} and ${team2} Predictions`)
