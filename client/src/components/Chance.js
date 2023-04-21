@@ -78,7 +78,7 @@ function Chance( {user} ) {
     )
     } else {
         return(
-        <p>Kindly sign up</p>
+        <p>Kindly login</p>
         )
     }
 }
