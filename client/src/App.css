@@ -45,9 +45,10 @@
 }
 .not{
   position: absolute;
-  top: 40%;
-  left: 10%;
+  top: 34%;
+  left: 8%;
   font-size: x-large;
+  color: white;
 }
 .container{
   margin-top: 2%;

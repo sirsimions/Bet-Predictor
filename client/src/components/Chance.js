@@ -62,10 +62,10 @@ function Chance( {user} ) {
         <div className='bgimage' style={styles.paperContainer}></div>
             <div className='bod'>
                 <div className='fields'>Enter the number of wins and draws for the most recent FIVE (5) matches</div>
-                <div className='fields'>Home team: <input type='text' value={team1} onChange={(e) => setTeam1(e.target.value)} /></div>
+                <div className='fields'>HOME TEAM: <input type='text' value={team1} onChange={(e) => setTeam1(e.target.value)} /></div>
                 <div className='fields'>No. of Wins: <input type='number' value={win1} onChange={(e) => setWin1(e.target.value)} /></div>
                 <div className='fields'>No. of Draws: <input type='number' value={draw1} onChange={(e) => setDraw1(e.target.value)} /></div>
-                <div className='fields'>Away team: <input type='text' value={team2} onChange={(e) => setTeam2(e.target.value)} /></div>
+                <div className='fields'>AWAY TEAM: <input type='text' value={team2} onChange={(e) => setTeam2(e.target.value)} /></div>
                 <div className='fields'>No. of Wins: <input type='number' value={win2} onChange={(e) => setWin2(e.target.value)} /></div>
                 <div className='fields'>No. of Draws: <input type='number' value={draw2} onChange={(e) => setDraw2(e.target.value)} /></div>
                 
