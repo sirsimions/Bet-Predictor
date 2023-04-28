@@ -20,7 +20,7 @@ function Home({ user }) {
             <div className='bgimage' style={styles.paperContainer}></div>
 
             <div className='bod'>
-                Hi {user.firstname}, tired with guesswork when predicting games, try this app.You might just be the next jackpot winner. 
+                Hi {user.firstname}, tired with guesswork when predicting games? Try this app. You might just be the next jackpot winner. 
             </div>
             </>
         )

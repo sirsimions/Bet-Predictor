@@ -18,14 +18,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    def logout
-        if logged_in?
-            current_user.destroy
-            user.destroy
-            render json: {}
-        end
-    end 
-
     private
     def session_params
         params.permit(:firstname, :password)

@@ -61,3 +61,18 @@
   top: 3%;
   background-color: black;
 }
+.search{
+  position: absolute;
+  top: 80%;
+  color: black;
+  left: 30%;
+  font-size: xx-large;
+  background-color: none;
+  border: none;
+  border-radius: 12px;
+  
+}
+.com{
+  color: blue;
+  font-size: x-large;
+}

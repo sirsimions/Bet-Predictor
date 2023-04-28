@@ -27,7 +27,7 @@ function App() {
     navigate('/')
   }
   function onSignup(){
-    navigate('/logins')
+    navigate('/login')
   }
 
   return(
@@ -37,7 +37,7 @@ function App() {
       <Route exact path='/' element={<Home user={user}/>}/>
       <Route exact path='/chance' element={<Chance user={user}/>}/>
       <Route exact path='/signups' element={<Signup onSignup={onSignup} setUser ={setUser}/>}/>
-      <Route exact path='/logins' element={<Login onLogin={onLogin} setUser ={setUser}/>}/>
+      <Route exact path='/login' element={<Login onLogin={onLogin} setUser ={setUser}/>}/>
     </Routes>
     </>
   )

@@ -18,7 +18,9 @@ function Chance( {user} ) {
     const [draw1, setDraw1] = useState();
     const [draw2, setDraw2] = useState();
     const [statement, setStatement] = useState('');
-    const Navigate = useNavigate()
+    const navigate = useNavigate()
+
+    
 
     
     const styles = {
@@ -41,13 +43,13 @@ function Chance( {user} ) {
         setSum2(score2)
     
 
-        if (score1 < score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5) {
+        if (score1 < score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5 && team1!=team2) {
             comment = `Prediction: ${team2} will win`
         }
-        else if(score1 > score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5) { 
+        else if(score1 > score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5 && team1!=team2) { 
             comment = `Prediction: ${team1} will win`
         }
-        else if(score1===score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2) <=5){
+        else if(score1===score2 && parseInt(win1)+parseInt(draw1) <=5 && parseInt(win2)+parseInt(draw2 && team1!=team2) <=5){
             comment = `The teams will draw`
         }
         else {comment ="Enter valid values. Consider only the most recent FIVE matches"}
@@ -72,8 +74,9 @@ function Chance( {user} ) {
                 <div ><button className='bt' onClick={predict}>Predict</button></div>
                 {/* <div>Sum: {sum}</div> */}
                 {/* <div>{matches}</div> */}
-                <div> {statement} </div>
+                <div className='com'> {statement} </div>
             </div>
+            {/* <button className='search' onClick={goal}>Goal.com</button> */}
         </>
     )
     } else {

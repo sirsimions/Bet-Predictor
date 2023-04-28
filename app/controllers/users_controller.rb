@@ -32,10 +32,6 @@ class UsersController < ApplicationController
       def profile
           render json: @user
       end
-
-      def logout
-        user.destroy
-      end 
     
       
       private

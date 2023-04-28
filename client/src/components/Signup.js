@@ -25,7 +25,8 @@ function Signup( {onSignup, user, setUser } ){
         }
     };
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault()
         fetch('/signup',{
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
@@ -38,6 +39,7 @@ function Signup( {onSignup, user, setUser } ){
         }).then(res=>res.json())
         .then(data=>{
             console.log(data)
+            onSignup()
         })
 
     }
@@ -77,7 +79,7 @@ function Signup( {onSignup, user, setUser } ){
             {/* <button id='but' onClick={()=>Navigate('/departments')}>Go Back</button> */}
 
             {/* <div className='bgimage' style={styles.paperContainer}></div> */}
-            <Logout setFirstname={setFirstname} setLastname={setLastname} setPassword={setPassword} />
+            {/* <Logout setFirstname={setFirstname} setLastname={setLastname} setPassword={setPassword} /> */}
             
         </>
     )
