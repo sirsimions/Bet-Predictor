@@ -14,13 +14,13 @@ function App() {
   const [user, setUser] = useState('')
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("user");
-  //   if (loggedInUser) {
-  //     const foundUser = JSON.parse(loggedInUser);
-  //     setUser(foundUser);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
   
 
   function onLogin(){
@@ -31,7 +31,7 @@ function App() {
   }
   
     function refreshPage() {
-      window.location.reload(false);
+      setUser(false);
     }
 
   return(
@@ -41,7 +41,7 @@ function App() {
       <Route exact path='/' element={<Home user={user}/>}/>
       <Route exact path='/chance' element={<Chance user={user}/>}/>
       <Route exact path='/signups' element={<Signup onSignup={onSignup} setUser ={setUser}/>}/>
-      <Route exact path='/login' element={<Login onLogin={onLogin} setUser ={setUser}/>}/>
+      <Route exact path='/login' element={<Login onLogin={onLogin} setUser ={setUser} />}/>
     </Routes>
     </>
   )

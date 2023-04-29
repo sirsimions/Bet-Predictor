@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 
-function Login({ setUser, onLogin }) {
+function Login({ setUser, onLogin, loggedInUser }) {
 
     const [lastname, setLastName] = useState('')
     const [password, setPassword] = useState('')
@@ -25,6 +25,7 @@ function Login({ setUser, onLogin }) {
                     setUser(data.user)
                     // setRole(data.user.role)
                     onLogin()
+                   
             });
     }
     return (
