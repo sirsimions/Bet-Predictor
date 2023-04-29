@@ -3,7 +3,7 @@ import '../App.css'
 
 function Login({ setUser, onLogin }) {
 
-    const [firstname, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
     const [password, setPassword] = useState('')
 
     function handleSubmit(e) {
@@ -16,7 +16,7 @@ function Login({ setUser, onLogin }) {
                 Authorization: localStorage.token
             },
             body: JSON.stringify({
-                firstname: firstname,
+                lastname: lastname,
                 password: password
             })
         }).then((res) => res.json()).then((data) => {
@@ -27,8 +27,6 @@ function Login({ setUser, onLogin }) {
                     onLogin()
             });
     }
-
-
     return (
         <>
             <div class="container">
@@ -40,7 +38,7 @@ function Login({ setUser, onLogin }) {
                                 <form _lpchecked="1" classname='form' onSubmit={handleSubmit}>
 
                                     <div class="form-group">
-                                        <input value={firstname} onChange={(e) => setFirstName(e.target.value)} type="text" class="form-control" id="email" placeholder="firstname" />
+                                        <input value={lastname} onChange={(e) => setLastName(e.target.value)} type="text" class="form-control" id="email" placeholder="firstname" />
                                     </div>
 
 

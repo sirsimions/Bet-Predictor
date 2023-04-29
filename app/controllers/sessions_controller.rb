@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     def create
-        user = User.find_by_firstname(session_params[:firstname])
+        user = User.find_by_lastname(session_params[:lastname])
 
         if user && user.authenticate(session_params[:password])
             token = issue_token(user)
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
     private
     def session_params
-        params.permit(:firstname, :password)
+        params.permit(:lastname, :password)
     end
 end
