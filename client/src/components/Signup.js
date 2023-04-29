@@ -12,6 +12,7 @@ function Signup( {onSignup, user, setUser } ){
     const [lastname, setLastname]=useState('')
     const [password, setPassword]=useState('')
     const[passwordConfirmation, setPasswordConfirmation]=useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
 
     // function onSignup(){
@@ -27,6 +28,7 @@ function Signup( {onSignup, user, setUser } ){
 
     function handleSubmit(e){
         e.preventDefault()
+        setIsLoading(true)
         fetch('/signup',{
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
@@ -40,6 +42,7 @@ function Signup( {onSignup, user, setUser } ){
         .then(data=>{
             console.log(data)
             onSignup()
+            setIsLoading(false)
         })
 
     }
@@ -69,7 +72,7 @@ function Signup( {onSignup, user, setUser } ){
                                         <small>Already registered?</small>
                                         <a href='/logins'>Login</a>
                                     </div>
-                                    <button class="btn btn-primary">Signup</button>
+                                    <button class="btn btn-primary" disabled={isLoading}>Signup</button>
                                 </form>
                             </div>
                         </div>

@@ -5,9 +5,11 @@ function Login({ setUser, onLogin, loggedInUser }) {
 
     const [lastname, setLastName] = useState('')
     const [password, setPassword] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
+        setIsLoading(true)
         fetch("/login", {
             method: 'POST',
             headers: {
@@ -20,13 +22,14 @@ function Login({ setUser, onLogin, loggedInUser }) {
                 password: password
             })
         }).then((res) => res.json()).then((data) => {
-                    localStorage.setItem("user", JSON.stringify(data.user))
-                    localStorage.setItem("token", data.jwt)
-                    setUser(data.user)
-                    // setRole(data.user.role)
-                    onLogin()
-                   
-            });
+            localStorage.setItem("user", JSON.stringify(data.user))
+            localStorage.setItem("token", data.jwt)
+            setUser(data.user)
+            // setRole(data.user.role)
+            onLogin()
+            setIsLoading(false)
+
+        });
     }
     return (
         <>
@@ -57,7 +60,7 @@ function Login({ setUser, onLogin, loggedInUser }) {
                                     } */}
                                     <div class="d-flex flex-row align-items-center justify-content-between">
 
-                                        <button class="btn btn-primary">Login</button>
+                                        <button class="btn btn-primary" disabled={isLoading}>Login</button>
                                     </div>
                                     <div class="d-flex flex-row align-items-center justify-content-between">
                                         {/* <small>Don't have an account ?</small>
@@ -69,6 +72,10 @@ function Login({ setUser, onLogin, loggedInUser }) {
                     </div>
                 </div>
             </div>
+
+            {/* <div className="spinner-container">
+                <div className="loading-spinner"></div>
+            </div> */}
         </>
     )
 };
