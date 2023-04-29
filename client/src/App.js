@@ -29,10 +29,14 @@ function App() {
   function onSignup(){
     navigate('/login')
   }
+  
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
   return(
     <>
-    <Navbar user={user} setUser ={setUser}/>
+    <Navbar user={user} setUser ={setUser} refreshPage = {refreshPage} />
     <Routes>
       <Route exact path='/' element={<Home user={user}/>}/>
       <Route exact path='/chance' element={<Chance user={user}/>}/>

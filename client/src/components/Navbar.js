@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Link, NavLink } from 'react-router-dom'
 import '../App.css'
 
-function Navbar({ user, handleLogout}) {
+function Navbar({ user, refreshPage}) {
 
     if (user) {
 
@@ -13,7 +13,7 @@ function Navbar({ user, handleLogout}) {
                     <Nav.Link as={Link} to='/' className='navItem'>Home</Nav.Link>
                     <Nav.Link as={Link} to='/chance' className='navItem'>Predictor</Nav.Link>
                     <p className='welcome'>Hello {user.firstname}, welcome!</p>
-                    {/* <button className='logout' onClick={handleLogout}>Logout</button> */}
+                    <button className='logout' onClick={refreshPage}>Logout</button>
                 </div>
             </>
         )

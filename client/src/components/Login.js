@@ -38,7 +38,7 @@ function Login({ setUser, onLogin }) {
                                 <form _lpchecked="1" classname='form' onSubmit={handleSubmit}>
 
                                     <div class="form-group">
-                                        <input value={lastname} onChange={(e) => setLastName(e.target.value)} type="text" class="form-control" id="email" placeholder="firstname" />
+                                        <input value={lastname} onChange={(e) => setLastName(e.target.value)} type="text" class="form-control" id="email" placeholder="lastname" />
                                     </div>
 
 
