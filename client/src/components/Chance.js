@@ -15,8 +15,8 @@ function Chance( {user} ) {
 
     const [sum1, setSum1] = useState();
     const [sum2, setSum2] = useState();
-    const [draw1, setDraw1] = useState();
-    const [draw2, setDraw2] = useState();
+    const [draw1, setDraw1] = useState(0);
+    const [draw2, setDraw2] = useState(0);
     const [statement, setStatement] = useState('');
     const navigate = useNavigate()
 
