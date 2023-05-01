@@ -12,7 +12,7 @@ function Navbar({ user, refreshPage}) {
                 <div className='nav'>
                     <Nav.Link as={Link} to='/' className='navItem'>Home</Nav.Link>
                     <Nav.Link as={Link} to='/chance' className='navItem'>Predictor</Nav.Link>
-                    <p className='welcome'>Hello {user.firstname}, welcome!</p>
+                    <p className='welcome'>Hi {user.firstname}, welcome!</p>
                     <button className='logout' onClick={refreshPage}>Logout</button>
                 </div>
             </>
