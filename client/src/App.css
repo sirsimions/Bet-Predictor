@@ -21,11 +21,12 @@
 }
 .bod{
  position: absolute;
+ display: inline-block;
  top: 24%;
  color: white;
  left: 30%;
  border: 1px solid blue;
- width: 40%;
+ width: 60%;
  padding: 1%;
 }
 .fields{
@@ -101,3 +102,17 @@
   align-items: center;
   height: 250px;
 }
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .nav, .bod {
+    font-size: x-small;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .nav, .bod {
+    font-size: x-small;
+  }
+}
+
+
